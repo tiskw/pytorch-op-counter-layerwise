@@ -1,8 +1,8 @@
 pytorch-op-counter-layerwise
 ================================================================================
 
-This repository provides `thoplw` that is a ython module to compute MACs
-(multiply–accumulate operations) and number of parameters for each layer
+This repository provides `thoplw` that is a Python module to compute MACs
+(multiply–accumulate operations) and the number of parameters for each layer
 of neural network models implemented by PyTorch.
 
 
@@ -15,7 +15,7 @@ The `thoplw` module requires:
 
 * PyTorch >= 2.0.0 (will work on the older version, but not checked)
 
-and the sample code require:
+and the sample code requires:
 
 * Torchvision >= 0.15.0
 
@@ -98,8 +98,8 @@ print(layers_info.summary(kind="text", fmt="ratio"))
 
 ### Table type
 
-The above example prints the NN model summary as a plain text, but you can dump the summary
-as CSV and Markdown format too. The following is an example to save the table as CSV and
+The above example prints the NN model summary as plain text, but you can dump the summary
+in CSV and Markdown format too. The following is an example of saving the table in CSV and
 Markdown format respectively.
 
 ```python
@@ -130,11 +130,11 @@ Computes MADDs and the number of parameters.
   - `model`: the target NN model.
   - `tensor`: input tensor for the `model`.
   - `custom_ops`: optional custom operations.
-  - `verbose`: shows extra message on your terminal if `True`.
+  - `verbose`: shows extra messages on your terminal if `True`.
 * Returns
   - `macs`: total MADDs of the target model and the given input tensor.
   - `params`: number of parameters of the target model.
-  - `layer_info`: `LayerInfo` class that store the details of each layer.
+  - `layer_info`: `LayerInfo` class that stores the details of each layer.
 
 ### thoplw.clever_format
 
@@ -163,7 +163,7 @@ A class to store layer details. Only the `summary` function is opened to users.
 
 * Args
   - `kind`: table type to be returned (`"text"` means simple table, `"csv"` means CSV, and `"md"` means Markdown).
-  - `fmt`: output format (`"raw"` means raw integer, `"clever"` means auto formatting, and `"ratio"` means ratio format).
+  - `fmt`: output format (`"raw"` means raw integer, `"clever"` means auto-formatting, and `"ratio"` means ratio format).
 * Returns
   - formatted string.
 
@@ -172,7 +172,7 @@ Results of Recent Models
 --------------------------------------------------------------------------------
 
 The following results can be obtained by running `tests/test_benchmarks.py`.
-Click the model anem to see the layer details.
+Click the model name to see the layer details.
 
 | Model name                                               | Params [M] | MACs [G] | | Model name                                                   | Params [M] | MACs [G] |
 |:--------------------------------------------------------:|:----------:|:--------:|-|:------------------------------------------------------------:|:----------:|:--------:|
@@ -195,7 +195,7 @@ Click the model anem to see the layer details.
 |                                                          |            |          | | [mnasnet_1.0](tests/benchmarks/mnasnet_1_0.md)               |  336.24 M  |   4.42 M |
 
 <p align="center">
-  <img src="tests/benchmarks/madds-vs-parameters.svg" width="80%">
+  <img src="https://github.com/tiskw/pytorch-op-counter-layerwise/blob/main/tests/benchmarks/madds-vs-parameters.svg" width="80%">
 </p>
 
 
